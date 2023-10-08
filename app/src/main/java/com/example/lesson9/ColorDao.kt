@@ -9,7 +9,8 @@ interface ColorDao {
     fun getAll(): Array<Color>
     @Query("SELECT * FROM colors WHERE name = :name")
     fun getColorByName(name: String): LiveData<Color>
-    
+    @Query("SELECT * FROM colors WHERE hex_color = :hex")
+    fun getColorByHex(hex: String): LiveData<Color>
 
     @Insert
     fun insert(vararg color: Color)
